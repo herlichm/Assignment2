@@ -43,6 +43,9 @@ def cost_per_class(annual_cost, credits):
 
     # return 0
 
+def skipped_classes_cost(annual_cost, credits, skipped_classes):
+    return skipped_classes * cost_per_class(annual_cost, credits)
+
 
 # ---- PROGRAM ----
 
@@ -58,6 +61,7 @@ def main():
         print("3. Cost per day")
         print("4. Cost per credit")
         print("5. Cost per class")
+        print("6. Cost of skipped classes")
         print("Q. Quit")
 
         choice = input("Choose an option: ")
@@ -76,6 +80,9 @@ def main():
             print(f"Cost per credit: ${cost_per_credit(total_cost, credits):.2f}")
         elif choice == "5":
             print(f"Cost per class: ${cost_per_class(total_cost, credits):.2f}")
+        elif choice == "6":
+            skipped_classes = int(input("Enter the number of skipped classes: "))
+            print(f"Cost of skipped classes: ${skipped_classes_cost(total_cost, credits, skipped_classes):.2f}")
         else:
             print("Invalid choice. Please try again.")
 
